@@ -98,6 +98,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    currentPage: 0,
     userLocation: {},
     toilets: []
   }

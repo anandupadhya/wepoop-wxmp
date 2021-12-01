@@ -3,15 +3,17 @@ const app = getApp();
 const userLocation = app.globalData.userLocation;
 const toilets = app.globalData.toilets;
 
-
-
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    
+  },
+  
+  moveToLocation: function () {
+    app.globalData.mapCtx.moveToLocation();
   },
 
   getToilets(latitude, longitude) {
@@ -61,16 +63,16 @@ Page({
     // *************** TODO ***************
   },
 
-  regionChangeHandler(e) {
-
-    // *************** TODO ***************
-    // request toilets from the api again with centerLocation
-    console.log("REGION CHANGED")
-    const page = this; 
-    const latitude = e.detail.centerLocation.latitude
-    const longitude = e.detail.centerLocation.longitude
-    if ( latitude !== 0 && longitude !== 0){
-      this.getToilets(latitude, longitude)
+  regionChangeHandler(e) { 
+    if (e.type === 'end') {
+      console.log(e.detail)
+      console.log((e.detail.region.northeast.latitude - e.detail.region.southwest.latitude)/4)
+      const page = this; 
+      const latitude = e.detail.centerLocation.latitude
+      const longitude = e.detail.centerLocation.longitude
+      if ( latitude !== 0 && longitude !== 0){
+        this.getToilets(latitude, longitude)
+      }
     }
     
     // *************** TODO ***************
@@ -114,9 +116,7 @@ Page({
    */
   onShow: function () {
     const page = this;
-    const currentToilet = toilets[0]
-    console.log("asdfasdfasdfasdasdfasdf")
-    console.log(currentToilet)
+    const currentToilet = page.data.toilets[0]
     page.setData({ currentToilet })
 
     // get user's current location, store in globalData, and move the map
@@ -147,7 +147,7 @@ Page({
    * Lifecycle function--Called when page unload
    */
   onUnload: function () {
-
+    console.log("TOILETS/INDEX UNLOADED!!!!!")
   },
 
   /**
