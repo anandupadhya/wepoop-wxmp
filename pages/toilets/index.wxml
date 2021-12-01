@@ -1,0 +1,32 @@
+<!--pages/toilets/index.wxml-->
+
+<topnav />
+
+<view class="map-container">
+    <map
+      id="myMap"
+      show-location="true"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{toilets}}"
+      bindtap="mapTapHandler"
+      bindmarkertap="markerTapHandler"
+      bindregionchange="regionChangeHandler">
+    </map>
+</view>
+
+<!-- <view class="page-container"></view> -->
+  <view class="eta pa20 px50 text-center">
+    <view class="f64 white bold">2 min</view>
+    <view class="f32 white bold">223 meters</view>
+    <view class="f32 white">{{toilets.length}} toilets nearby</view>
+  </view>
+  <view class="info pa20 px50 text-center">
+    <view class="f32 white">Nearest Toilet</view>
+    <view class="f48 white bold">{{currentToilet.description}}</view>
+    <view class="f32 white">{{currentToilet.address}}</view>
+  </view>
+<!-- </view> -->
+
+<bottomnav />
+

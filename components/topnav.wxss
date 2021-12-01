@@ -1,0 +1,16 @@
+/* components/topnav.wxss */
+@import "../app.wxss";
+
+.top-nav {
+  width: 100vw;
+  height: 100px;
+  background-color:white;
+  position:fixed;
+  top:0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(255, 204, 29, 1);
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.3);
+}

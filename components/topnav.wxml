@@ -1,0 +1,4 @@
+<!--components/topnav.wxml-->
+<view class="top-nav">
+  <view class="f48 mb30 black bold">💩 wePoop</view>
+</view>

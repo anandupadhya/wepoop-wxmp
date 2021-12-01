@@ -17,6 +17,7 @@
 .f52 { font-size: 52rpx; }
 .f56 { font-size: 56rpx; }
 .f60 { font-size: 60rpx; }
+.f64 { font-size: 64rpx; }
 .f72 { font-size: 72rpx; }
 .f84 { font-size: 84rpx; }
 .f96 { font-size: 96rpx; }

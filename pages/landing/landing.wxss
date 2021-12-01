@@ -1,0 +1,11 @@
+/* pages/landing/landing.wxss */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 204, 29, 1);
+}

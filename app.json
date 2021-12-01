@@ -1,12 +1,25 @@
 {
   "pages":[
+    "pages/landing/landing",
+    "pages/toilets/index",
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "usingComponents": {
+    "topnav": "/components/topnav",
+    "bottomnav": "/components/bottomnav"
+  },
+
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window":{
+    "navigationStyle": "custom",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "wePoop",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

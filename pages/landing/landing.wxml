@@ -1,0 +1,5 @@
+<!--pages/landing/landing.wxml-->
+<view class="container">
+  <view class="f96">💩</view>
+  <view class="f96 black bold">wePoop</view>
+</view>

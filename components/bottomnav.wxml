@@ -1,0 +1,9 @@
+<!--components/bottomnav.wxml-->
+<view class="bottom-nav">
+  <view class="f36 black bold" bindtap="moveToLocation">
+    <image src="/images/location.svg"></image>
+  </view>
+  <view class="f36 black bold">Toilets</view>
+  <view class="f36 black bold">User</view>
+  <view class="f36 black bold">Add</view>
+</view>
