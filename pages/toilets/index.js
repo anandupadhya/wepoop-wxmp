@@ -59,6 +59,7 @@ Page({
     // use the marker ID to display the toilet info in the display box 
     // toilet data is stored in the page data and globalData
     // *************** TODO ***************
+    
   },
 
   regionChangeHandler(e) {
