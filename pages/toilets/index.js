@@ -65,6 +65,7 @@ Page({
 
     // *************** TODO ***************
     // request toilets from the api again with centerLocation
+    console.log("REGION CHANGED")
     const page = this; 
     const latitude = e.detail.centerLocation.latitude
     const longitude = e.detail.centerLocation.longitude

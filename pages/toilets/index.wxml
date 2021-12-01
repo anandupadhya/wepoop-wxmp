@@ -5,6 +5,9 @@
 <view class="map-container">
     <map
       id="myMap"
+      scale="17"
+      min-scale="16"
+      max-scale="18"
       show-location="true"
       latitude="{{latitude}}"
       longitude="{{longitude}}"
