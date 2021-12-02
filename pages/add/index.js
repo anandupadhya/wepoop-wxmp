@@ -16,6 +16,15 @@ Page({
       }
     ]
   },
+  moveToLocation: function () {
+    const page = this;
+    page.data.mapCtx.moveToLocation({
+      success(res) {
+        console.log(res)
+      }
+    })
+        
+  },
 
   goToCurrentLocation() {
     const page = this;

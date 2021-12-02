@@ -12,7 +12,6 @@
       show-location="true"
       latitude="{{latitude}}"
       longitude="{{longitude}}"
-      markers="{{toilets}}"
       bindtap="mapTapHandler"
       bindmarkertap="markerTapHandler"
       bindregionchange="regionChangeHandler">
@@ -21,6 +20,11 @@
 <view class="locate">
   <view class="f36 black bold" bindtap="moveToLocation">
     <image src="/images/location.svg"></image>
+  </view>
+</view>
+<view class="target">
+  <view class="f36 black" bindtap="moveToLocation">
+    <image src="/images/target.svg"></image>
   </view>
 </view>
 <view class="my-form-container">
