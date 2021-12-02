@@ -3,93 +3,101 @@ const app = getApp();
 const userLocation = app.globalData.userLocation;
 const toilets = app.globalData.toilets;
 
-
-
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    
+  },
 
+  getCurrentLocation() {
+    wx.getLocation({
+      success(res) {
+        const latitude = res.latitude;
+        const longitude = res.longitude;
+        return { latitude, longitude }
+      }
+     })
+  },
+  
+  moveToLocation: function () {
+    const page = this;
+    app.globalData.mapCtx.moveToLocation({
+      success(res) {
+        console.log(res)
+      }
+    })
+        
   },
 
   getToilets(latitude, longitude) {
     const page = this;
     wx.request({
-      url: `https://wepoop.wogengapp.cn//api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+      url: `https://wepoop.wogengapp.cn/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+      // url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
       method: 'GET',
       header: {
         "X-USER-EMAIL": app.globalData.headers["X-USER-EMAIL"],
         "X-USER-TOKEN": app.globalData.headers["X-USER-TOKEN"]
       },
       success(res) {
-        console.log(res)
-        page.setData({ toilets: res.data.toilets })
-        const currentToilet = res.data.toilets[0]
-        page.setData({ currentToilet })
+        const toilets = res.data.toilets
+        page.setData({ toilets })
+        const currentToilet = toilets[0]
+        const distanceDisplay = currentToilet.distance < 1000
+          ? `${Math.floor(currentToilet.distance)} m`
+          : `${Math.floor(currentToilet.distance/100) / 10} km`
+        page.setData({ currentToilet: {
+          ...currentToilet,
+          distanceDisplay
+        } })
 
-        // set map to include the toilets loaded from api
-        // app.globalData.mapCtx.includePoints({
-        //   padding: [50],
-        //   points: page.data.toilets
-        // })
+        
       }
     })
   },
 
-  mapTapHandler(e) {
-    // console.log("Map tapped")
-    // console.log(e)
-  },
-
   markerTapHandler(e) {
     const page = this;
-    console.log("Marker tapped")
     const toiletMarkerId = e.detail.markerId
-    //use the marker id to find the toilet and put the object in the currentToilet
     const currentToilet = page.data.toilets.find((toilet) => {
       console.log(toilet.id)
       console.log(toiletMarkerId)
       return toilet.id === toiletMarkerId
     })
-    console.log(currentToilet)
-    page.setData({ currentToilet })
+    const distanceDisplay = currentToilet.distance < 1000
+          ? `${Math.floor(currentToilet.distance)} m`
+          : `${Math.floor(currentToilet.distance/100) / 10} km`
+    page.setData({ currentToilet: {
+      ...currentToilet,
+      distanceDisplay
+    } })
     // *************** TODO ***************
-    // use the marker ID to display the toilet info in the display box 
-    // toilet data is stored in the page data and globalData
+    // somehow highlight the marker tapped and also pan it to the center location on the map
     // *************** TODO ***************
   },
 
-  regionChangeHandler(e) {
-
-    // *************** TODO ***************
-    // request toilets from the api again with centerLocation
-    const page = this; 
-    const latitude = e.detail.centerLocation.latitude
-    const longitude = e.detail.centerLocation.longitude
-    if ( latitude !== 0 && longitude !== 0){
-      this.getToilets(latitude, longitude)
+  regionChangeHandler(e) { 
+    if (e.type === 'end') {
+      console.log(e.detail)
+      console.log((e.detail.region.northeast.latitude - e.detail.region.southwest.latitude)/4)
+      const page = this; 
+      const latitude = e.detail.centerLocation.latitude
+      const longitude = e.detail.centerLocation.longitude
+      console.log(latitude, longitude)
+      if ( latitude !== 0 && longitude !== 0){
+        this.getToilets(latitude, longitude)
+      }
     }
-    
     // *************** TODO ***************
     // console.log(e.detail.region)
   },
 
-  // getCenterLocation: function () {
-  //   const page = this;
-  //   app.globalData.mapCtx.getCenterLocation({
-  //     success(res) {
-  //       console.log(res.longitude)
-  //       console.log(res.latitude)
-  //     }
-  //   })
-  // },
 
-  // moveToLocation: function () {
-  //   const page = this;
-  //   app.globalData.mapCtx.moveToLocation();
-  // },
+
+
 
   /**
    * Lifecycle function--Called when page load
@@ -113,25 +121,20 @@ Page({
    */
   onShow: function () {
     const page = this;
-    const currentToilet = toilets[0]
-    console.log("asdfasdfasdfasdasdfasdf")
-    console.log(currentToilet)
+    const currentToilet = page.data.toilets[0]
+    const distanceDisplay = currentToilet.distance < 1000
+          ? `${Math.floor(currentToilet.distance)} m`
+          : `${Math.floor(currentToilet.distance/100) / 10} km`
+        page.setData({ currentToilet: {
+          ...currentToilet,
+          distanceDisplay
+        } })
     page.setData({ currentToilet })
 
-    // get user's current location, store in globalData, and move the map
-    // wx.getLocation({
-    //   success: res =>{
-    //     userLocation.latitude = res.latitude
-    //     userLocation.longitude = res.longitude
-    //     app.globalData.mapCtx.moveToLocation();
-    //   }
-    //  })
 
-    // wx.showLoading({ title: "Loading..."});
+
+
     
-    // this.getToilets(999, 999)
-    // page.setData({ toilets })
-    // set current toile to be the first toilet in the list
 
   },
 
@@ -146,7 +149,7 @@ Page({
    * Lifecycle function--Called when page unload
    */
   onUnload: function () {
-
+    console.log("TOILETS/INDEX UNLOADED!!!!!")
   },
 
   /**
@@ -170,3 +173,32 @@ Page({
 
   }
 })
+
+
+// set map to include the toilets loaded from api
+// app.globalData.mapCtx.includePoints({
+//   padding: [50],
+//   points: page.data.toilets
+// })
+
+// getCenterLocation: function () {
+//   const page = this;
+//   app.globalData.mapCtx.getCenterLocation({
+//     success(res) {
+//       console.log(res.longitude)
+//       console.log(res.latitude)
+//     }
+//   })
+// },
+
+
+// get user's current location, store in globalData, and move the map
+
+
+
+// moveToLocation: function () {
+//   const page = this;
+//   app.globalData.mapCtx.moveToLocation();
+// },
+
+    // wx.showLoading({ title: "Loading..."});

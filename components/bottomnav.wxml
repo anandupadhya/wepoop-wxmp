@@ -1,9 +1,28 @@
 <!--components/bottomnav.wxml-->
 <view class="bottom-nav">
-  <view class="f36 black bold" bindtap="moveToLocation">
-    <image src="/images/location.svg"></image>
-  </view>
-  <view class="f36 black bold">Toilets</view>
-  <view class="f36 black bold">User</view>
-  <view class="f36 black bold">Add</view>
+  <!-- <view class="nav-btn active" bindtap="findBtnHandler"><view class="f36 black bold">Toilets</view></view>
+  <view class="nav-btn" bindtap="userBtnHandler"><view class="f36 black bold">User</view></view>
+  <view class="nav-btn" bindtap="addBtnHandler"><view class="f36 black bold">Add</view></view> -->
+
+  <block wx:if="{{currentPage === 0}}">
+    <view class="nav-btn active" bindtap="findBtnHandler"><view class="f36 black bold">Toilets{{current}}</view></view>
+  </block>
+  <block wx:else>
+    <view class="nav-btn" bindtap="findBtnHandler"><view class="f36 black bold">Toilets</view></view>
+  </block>
+
+  <!-- <block wx:if="{{currentPage === 1}}">
+    <view class="nav-btn active" bindtap="userBtnHandler"><view class="f36 black bold">User</view></view>
+  </block>
+  <block wx:else>
+    <view class="nav-btn" bindtap="userBtnHandler"><view class="f36 black bold">User</view></view>
+  </block> -->
+  
+  <block wx:if="{{currentPage === 2}}">
+    <view class="nav-btn active" bindtap="addBtnHandler"><view class="f36 black bold">Add</view></view>
+  </block>
+  <block wx:else>
+    <view class="nav-btn" bindtap="addBtnHandler"><view class="f36 black bold">Add</view></view>
+  </block>
+  
 </view>

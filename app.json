@@ -2,6 +2,8 @@
   "pages":[
     "pages/landing/landing",
     "pages/toilets/index",
+    "pages/user/index",
+    "pages/add/index",
     "pages/index/index",
     "pages/logs/logs"
   ],
