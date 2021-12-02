@@ -25,7 +25,8 @@ App({
                 'code': res.code,
               },
               success(res) {
-                // console.log(res)
+                console.log(res)
+                getApp().globalData.user = res.data.user
                 getApp().globalData.headers = res.data.headers
                 // console.log("Headers set in globalData")
                 // console.log(getApp().globalData.headers)
@@ -34,6 +35,7 @@ App({
                 // get first toilet locations to show users
                 wx.request({
                   url: `https://wepoop.wogengapp.cn//api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+                  // url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
                   method: 'GET',
                   header: {
                     "X-USER-EMAIL": getApp().globalData.headers["X-USER-EMAIL"],
@@ -44,9 +46,14 @@ App({
                     res.data.toilets.forEach((toilet) => {
                       getApp().globalData.toilets.push(toilet)
                     })
-                    wx.redirectTo({
-                      url: '/pages/toilets/index',
-                    })
+                    setTimeout(() => {
+                      wx.redirectTo({
+                        url: '/pages/toilets/index',
+                      })
+                    }, 1000)
+                    // wx.redirectTo({
+                    //   url: '/pages/toilets/index',
+                    // })
                   }
                 })
 
@@ -98,7 +105,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    currentPage: 0,
+    // currentPage: 0,
     userLocation: {},
     toilets: []
   }

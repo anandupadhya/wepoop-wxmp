@@ -1,18 +1,115 @@
 // pages/add/index.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    // latitude: 31.22478,
+    // longitude: 121.44526,
+    toilets: [
+      {
+        latitude: 31.22478,
+        longitude: 121.44526,
+      }
+    ]
+  },
 
+  goToCurrentLocation() {
+    const page = this;
+    wx.getLocation({
+      success(res) {
+        const latitude = res.latitude;
+        const longitude = res.longitude;
+        const toilets = [{ latitude, longitude }]
+        page.setData({ latitude, longitude })
+        page.setData({ toilets })
+      }
+     })
+  },
+
+  regionChangeHandler(e) { 
+    const page = this;
+    if (e.type === 'end') {
+      console.log(e.detail)
+      const page = this; 
+      const latitude = e.detail.centerLocation.latitude
+      const longitude = e.detail.centerLocation.longitude
+      console.log(latitude, longitude)
+      const toilets = [{ latitude, longitude }]
+      page.setData({ toilets })
+      
+    }
+    // *************** TODO ***************
+    // console.log(e.detail.region)
+  },
+
+  submitHandler(e) {
+    const page = this;
+    console.log("Going to submit")
+    console.log(e)
+
+    const description = e.detail.value.description
+    const directions = e.detail.value.directions
+    if ( description && directions ) {
+      wx.request({
+        url: `https://wepoop.wogengapp.cn/api/v1/toilets`,
+        // url: `http://localhost:3000/api/v1/toilets`,
+        method: 'POST',
+        header: {
+          "X-USER-EMAIL": app.globalData.headers["X-USER-EMAIL"],
+          "X-USER-TOKEN": app.globalData.headers["X-USER-TOKEN"]
+        },
+        data: {
+          user_id: getApp().globalData.user.id,
+          latitude: page.data.toilets[0].latitude,
+          longitude: page.data.toilets[0].longitude,
+          description: description,
+          // male: true,
+          // female: true,
+          directions: directions,
+          // changing_station: false,
+          // accessibility: false,
+          // address: "999 Some Rd., Some District, Shanghai"
+        },
+        success(res) {
+          console.log(res)
+          wx.showToast({
+            title: 'Thanks',
+            icon: 'success',
+            duration: 2000,
+            success(res) {
+              setTimeout(() => {
+                wx.redirectTo({
+                  url: '/pages/toilets/index',
+                })        
+              }, 1000)
+            }
+          })
+          // setTimeout(() => {
+          //   wx.redirectTo({
+          //     url: '/pages/toilets/index',
+          //   })        
+          // }, 1000)
+        } 
+      })
+    } else {
+      console.log("Incomplete")
+      wx.showToast({
+        title: 'Incomplete',
+        icon: 'error',
+        duration: 2000,
+      })
+    }
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.goToCurrentLocation()
   },
 
   /**
@@ -26,7 +123,10 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    const page = this;
+    const mapCtx = wx.createMapContext('addMap');
+    mapCtx.moveToLocation();
+    page.setData({ mapCtx })
   },
 
   /**

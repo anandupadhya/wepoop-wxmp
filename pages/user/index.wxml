@@ -1,3 +1,34 @@
 <!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
-<bottomnav currentPage="1" />
+<!-- ##### USER PROFILE ##### -->
+
+<topnav />
+
+<view class="page-container">
+  <view class="favorites section">
+    <!-- <view>User ID {{id}}</view> -->
+    <view class="title f48 black bold">Favorites</view>
+    <block wx:if="{{favorites.length > 0}}">
+      <view wx:for="{{favorites}}" wx:for-item="toilet" wx:key="key">
+        <view class="content black">Toilet: {{toilet.toilet_id}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="content black">You don't have any favorite toilets yet.</view>
+      <view class="content black">Keep exploring...</view>
+    </block>
+  </view>
+  <view class="reviews section">
+    <view class="title f48 black bold">Your Reviews</view>
+    <block wx:if="{{reviews.length > 0}}">
+      <view wx:for="{{reviews}}" wx:for-item="review" wx:key="key">
+        <view class="content black">Toilet: {{review.toilet_id}} Happy? {{review.happy}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="content black">You haven't revied any toilets yet.</view>
+      <view class="content black">Go take a dump and help use review...</view>
+    </block>
+  </view>
+</view>
+
+<bottomnav current-page="{{1}}" />

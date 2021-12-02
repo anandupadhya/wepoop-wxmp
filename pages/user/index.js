@@ -1,4 +1,6 @@
 // pages/user/index.js
+const user = getApp().globalData.user
+
 Page({
 
   /**
@@ -12,7 +14,25 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const page = this;
+    const id = getApp().globalData.user.id
+    page.setData({ id })
+    wx.request({
+      // url: `https://wepoop.wogengapp.cn/api/v1/users/${id}`,
+      url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+      method: 'GET',
+      header: {
+        "X-USER-EMAIL": getApp().globalData.headers["X-USER-EMAIL"],
+        "X-USER-TOKEN": getApp().globalData.headers["X-USER-TOKEN"]
+      },
+      success(res) {
+        console.log(res)
+        page.setData({
+          favorites: res.data.favorites,
+          reviews: res.data.reviews
+        })
+      }
+    })
   },
 
   /**

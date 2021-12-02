@@ -1,4 +1,41 @@
 <!--pages/add/index.wxml-->
-<text>pages/add/index.wxml</text>
+<!-- ##### ADD TOILET ##### -->
 
-<bottomnav currentPage="2" />
+<topnav />
+
+<view class="map-container">
+    <map
+      id="addMap"
+      scale="17"
+      min-scale="15"
+      max-scale="18"
+      show-location="true"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{toilets}}"
+      bindtap="mapTapHandler"
+      bindmarkertap="markerTapHandler"
+      bindregionchange="regionChangeHandler">
+    </map>
+</view>
+<view class="locate">
+  <view class="f36 black bold" bindtap="moveToLocation">
+    <image src="/images/location.svg"></image>
+  </view>
+</view>
+<view class="my-form-container">
+  <form catchsubmit="submitHandler" catchreset="formReset">
+    <!-- <view>Latitude: {{toilets[0].latitude}}</view>
+    <view>Longitude: {{toilets[0].longitude}}</view> -->
+    <view class="mb40">Drag the map to the desired location...</view>
+    <view class="my-form-label">Description</view>
+    <input class="my-form-input" name="description" placeholder="Ex: Crystal Galaria 3rd Floor" />
+    <view class="my-form-label">Directions</view>
+    <input class="my-form-input" name="directions" placeholder="Ex: Walk past the Zara store and make a left" />
+    <view class="my-form-buttons">
+      <button class="btn-submit mt50" formType="submit">Submit</button>
+    </view>
+  </form>
+</view>
+
+<bottomnav current-page="{{2}}" />
