@@ -4,7 +4,7 @@
   position: fixed;
   top: 100px;
   width: 100vw;
-  height: 712px;
+  height: calc(100vh - 100px);
   /* top: 240px;
   height: 370px; */
 }
@@ -25,33 +25,43 @@ map {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 32rpx;
+  /* padding: 32rpx; */
 }
 
 .eta {
   position:fixed;
-  top:120px;
-  margin-left: 25%;
+  top:80px;
+  margin-left: 20%;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   /* display: none; */
-  width: 50%;
+  width: 60%;
+  height: 85px;
   border-radius: 32rpx;
-  background-color: rgba(19, 143, 64, 0.8);
+  /* background-color: rgba(19, 143, 64, 0.8); */
+  /* background-color: #c47600da; */
+  background-color:  rgba(255, 255, 255, 1.0);
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.4);
   /* background-color: rgba(62, 124, 23, 0.75); */
 }
 
 .info {
   position:fixed;
-  bottom:100px;
-  height: 100px;
+  bottom:50px;
+  height: 150px;
   margin-left: 5%;
   box-sizing: border-box;
   display: block;
   /* display: none; */
   width: 90%;
   border-radius: 32rpx;
-  background-color: rgba(19, 143, 64, 0.8);
+  /* background-color: rgba(19, 143, 64, 0.8); */
+  /* background-color: #c47600da; */
+  background-color:  rgba(255, 255, 255, 1.0);
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 

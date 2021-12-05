@@ -5,7 +5,8 @@
     "pages/user/index",
     "pages/add/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/playground/location"
   ],
   "usingComponents": {
     "topnav": "/components/topnav",

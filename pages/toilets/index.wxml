@@ -7,12 +7,11 @@
       id="myMap"
       scale="17"
       min-scale="15"
-      max-scale="18"
+      max-scale="20"
       show-location="true"
       latitude="{{latitude}}"
       longitude="{{longitude}}"
       markers="{{toilets}}"
-      bindtap="mapTapHandler"
       bindmarkertap="markerTapHandler"
       bindregionchange="regionChangeHandler">
     </map>
@@ -24,32 +23,22 @@
   </view>
 </view>
 
-<!-- <block wx:if="{{ toilets.length > 0 }}">
+<block wx:if="{{nearest}}">
   <view class="eta pa20 px50 text-center">
-    <view class="f64 white bold">2 min</view>
-    <view class="f32 white bold">{{currentToilet.distanceDisplay}}</view>
-    <view class="f32 white">{{toilets.length}} toilets nearby</view>
+    <!-- <view class="f64 white bold">2 min</view> -->
+    <view class="f32 black bold">{{currentToilet.distanceDisplay}}</view>
+    <view class="f32 black">{{toilets.length}} toilets nearby</view>
   </view>
-</block> -->
-
-<block wx:if="{{toilets.length > 0}}">
-  <view class="eta pa20 px50 text-center">
-    <view class="f64 white bold">2 min</view>
-    <view class="f32 white bold">{{currentToilet.distanceDisplay}}</view>
-    <view class="f32 white">{{toilets.length}} toilets nearby</view>
-  </view>
-  <view class="info pa20 px50 text-center">
-    <view class="f32 white">Nearest Toilet</view>
-    <view class="f48 white bold">{{currentToilet.description}}</view>
-    <!-- <view class="f32 white">{{currentToilet.address}}</view> -->
+  <view class="info pa20 px50 text-center" bindtap="startNavigation">
+    <view class="f32 black">Nearest Toilet</view>
+    <view class="f48 black bold">{{currentToilet.description}}</view>
   </view>
 </block>
 <block wx:else>
   <view class="info pa20 px50 text-center">
-      <view class="f48 white bold">No toilets nearby...</view>
+      <view class="f48 black bold">No toilets nearby...</view>
   </view>
 </block>
-
 
 <bottomnav current-page="{{0}}" />
 

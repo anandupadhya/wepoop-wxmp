@@ -12,5 +12,5 @@
   justify-content: center;
   align-items: flex-end;
   background-color: rgba(255, 204, 29, 1);
-  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.4);
 }

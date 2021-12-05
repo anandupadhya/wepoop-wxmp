@@ -1,0 +1,4 @@
+<!--pages/playground/location.wxml-->
+<view class="container">Test</view>
+<view bindtap="wgs84">WGS84</view>
+<view bindtap="gcj02">GCJ02</view>
