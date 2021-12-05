@@ -4,6 +4,7 @@
 
 <view class="map-container">
     <map
+      class="map-element"
       id="myMap"
       scale="17"
       min-scale="15"

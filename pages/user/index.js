@@ -1,5 +1,6 @@
 // pages/user/index.js
-const user = getApp().globalData.user
+const app = getApp()
+const user = app.globalData.user
 
 Page({
 
@@ -17,9 +18,11 @@ Page({
     const page = this;
     const id = getApp().globalData.user.id
     page.setData({ id })
+
+    const env = app.globalData.env
+    const url = app.globalData.url[env]
     wx.request({
-      // url: `https://wepoop.wogengapp.cn/api/v1/users/${id}`,
-      url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+      url: `${url}/users/${id}`,
       method: 'GET',
       header: {
         "X-USER-EMAIL": getApp().globalData.headers["X-USER-EMAIL"],
