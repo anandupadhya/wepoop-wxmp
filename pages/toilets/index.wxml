@@ -20,7 +20,7 @@
 
 <view class="locate">
   <view class="f36 black bold" bindtap="moveMap">
-    <image src="/images/location.svg"></image>
+    <image src="/images/target.svg"></image>
   </view>
 </view>
 

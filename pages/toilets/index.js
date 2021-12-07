@@ -107,7 +107,7 @@ Page({
             borderRadius: 4,
             padding: 8,
           }
-          return { ...toilet, width: '40', height: '40', iconPath: '/images/marker.png', callout, happy, unhappy }
+          return { ...toilet, width: '42', height: '42', iconPath: '/images/marker2.png', callout, happy, unhappy }
         };
         
         const toilets = res.data.toilets.map((toilet) => {

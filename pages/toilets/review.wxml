@@ -5,8 +5,12 @@
   <view class="f60 mt20 mb40">How was it?</view>
 
   <view class="w100 flex justify-center">
-    <view class="w30 .box-b f84 px10 py20 mx10 my radius20 b b2 {{ happy === true ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="happyReviewHandler">😀</view>
-    <view class="w30 .box-b f84 px10 py20 mx10 my radius20 b b2 {{ happy === false ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="unhappyReviewHandler">😟</view>
+    <view class="w30 btn-smiley .box-b f84 px10 py40 mx10 my radius20 b b2 flex justify-center items-center {{ happy === true ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="happyReviewHandler">
+      <image src="/images/happy.svg"></image>
+    </view>
+    <view class="w30 btn-smiley .box-b f84 px10 py40 mx10 my radius20 b b2 flex justify-center items-center {{ happy === false ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="unhappyReviewHandler">
+      <image src="/images/sad.svg"></image>
+    </view>
   </view>
 
   <view style="display: {{ happy === true ? 'flex' : 'none' }};" class="column items-center ">
@@ -24,8 +28,8 @@
   </view>
 
   <view class="w100 mt50 flex column items-center">
-    <view style="display: {{ ( happy === true ) || ( happy === false )  ? 'flex' : 'none' }};" class="w40 .box-b pa20 mt20 b b2 b-sec bg-sec radius20 f36 justify-center" bindtap="submitHandler">Submit</view>
-    <view class="w40 .box-b pa20 mt20 b b4 b-sec radius20 f36" bindtap="cancelHandler">Skip Review</view>
+    <view style="display: {{ ( happy === true ) || ( happy === false )  ? 'flex' : 'none' }};" class="w40 .box-b pa20 mt20 b b2 b-pri bg-pri radius20 f36 justify-center" bindtap="submitHandler">Submit</view>
+    <view class="w40 .box-b pa20 mt20 b b4 b-pri radius20 f36" bindtap="cancelHandler">Skip Review</view>
   </view>
 
 </view>

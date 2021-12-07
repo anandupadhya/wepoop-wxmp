@@ -4,3 +4,8 @@
   margin-top: 100px;
   margin-bottom: 100px
 }
+
+.btn-smiley image {
+  width: 100rpx;
+  height: 100rpx;
+}

@@ -2,6 +2,7 @@
 /* @import "../app.wxss"; */
 
 .bottom-nav {
+  box-sizing: border-box;
   width: 100vw;
   height: 70px;
   position:fixed;
@@ -15,7 +16,7 @@
 .nav-btn {
   box-sizing: border-box;
   height: 100%;
-  padding: 16px;
+  padding: 8px;
   flex-grow: 1;
   display: flex;
   justify-content: center;
@@ -23,8 +24,27 @@
   font-size: 40rpx;
   font-weight: bold;
   color: black;
+  border-top: 4px solid rgb(255, 204, 29);
+}
+
+.btn-map image{
+  fill: white;
+  width: 80rpx;
+  height: 64rpx;
+}
+
+.btn-user image{
+  width: 58rpx;
+  height: 58rpx;
+
+}
+
+.btn-add image{
+  width: 54rpx;
+  height: 54rpx;
 }
 
 .active {
-  background-color: rgb(255, 170, 0);
+  box-sizing: border-box;
+  border-top: 4px solid black;
 }

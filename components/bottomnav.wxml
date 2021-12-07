@@ -1,9 +1,20 @@
 <!--components/bottomnav.wxml-->
 
 <view class="bottom-nav">
-    <view class="nav-btn {{currentPage === 0 ? 'active' : ''}}" bindtap="findBtnHandler">Explore</view>
+    <!-- <view class="nav-btn {{currentPage === 0 ? 'active' : ''}}" bindtap="findBtnHandler">Explore</view> -->
+    <view class="nav-btn btn-map {{currentPage === 0 ? 'active' : ''}}" bindtap="findBtnHandler">
+      <image src="/images/map.svg"></image>
+    </view>
+
     <!-- <view class="nav-btn {{currentPage === 1 ? 'active' : ''}}" bindtap="userBtnHandler">User</view> -->
-    <view class="nav-btn {{currentPage === 2 ? 'active' : ''}}" bindtap="addBtnHandler">Add</view>
+    <!-- <view class="nav-btn btn-user {{currentPage === 1 ? 'active' : ''}}" bindtap="userBtnHandler">
+      <image src="/images/user2.svg"></image>
+    </view> -->
+
+    <!-- <view class="nav-btn {{currentPage === 2 ? 'active' : ''}}" bindtap="addBtnHandler">Add</view> -->
+    <view class="nav-btn btn-add {{currentPage === 2 ? 'active' : ''}}" bindtap="addBtnHandler">
+      <image src="/images/add.svg"></image>
+    </view>
 </view>
 
 <!-- <view class="bottom-nav"> -->
