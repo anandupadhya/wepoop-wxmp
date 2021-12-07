@@ -4,6 +4,60 @@
 
 <view class="map-container">
     <map
+      class="map-element"
+      id="myMap"
+      scale="17"
+      min-scale="15"
+      max-scale="20"
+      show-location="true"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{toilets}}"
+      bindmarkertap="markerTapHandler"
+      bindregionchange="regionChangeHandler">
+    </map>
+</view>
+
+<view class="locate">
+  <view class="f36 black bold" bindtap="moveMap">
+    <image src="/images/location.svg"></image>
+  </view>
+</view>
+
+<block wx:if="{{nearest}}">
+  <view class="info pa text-center">
+    <view class="f40 black py20">{{currentToilet.description}}</view>
+    <view class="f32 black bold">{{currentToilet.distanceDisplay}}</view>
+    <view class="flex justify-evenly">
+        <view class="happy pa flex items-center w35 black">
+          <view class="f72">😀</view>
+          <view class="f48">{{currentToilet.happy}}%</view>
+        </view>
+        <view class="unhappy pa flex items-center w35 black">
+          <view class="f72">😟</view>
+          <view class="f48">{{currentToilet.unhappy}}%</view>
+        </view>
+        <view class="navigate pa flex column justify-center radius20 bg-pri w25 f30 black bold" bindtap="startNavigation">
+          <view>Take Me</view>
+          <view>There</view>
+        </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="info pa20 px50 text-center">
+      <view class="f48 black bold">No toilets nearby...</view>
+  </view>
+</block>
+
+<bottomnav current-page="{{0}}" />
+
+
+
+<!-- <topnav />
+
+<view class="map-container">
+    <map
       id="myMap"
       scale="17"
       min-scale="15"
@@ -25,7 +79,7 @@
 
 <block wx:if="{{nearest}}">
   <view class="eta pa20 px50 text-center">
-    <!-- <view class="f64 white bold">2 min</view> -->
+    <view class="f64 white bold">2 min</view>
     <view class="f32 black bold">{{currentToilet.distanceDisplay}}</view>
     <view class="f32 black">{{toilets.length}} toilets nearby</view>
   </view>
@@ -40,5 +94,5 @@
   </view>
 </block>
 
-<bottomnav current-page="{{0}}" />
+<bottomnav current-page="{{0}}" /> -->
 

@@ -1,9 +1,10 @@
 {
   "pages":[
     "pages/landing/landing",
-    "pages/toilets/index",
-    "pages/user/index",
     "pages/add/index",
+    "pages/toilets/index",
+    "pages/toilets/review",
+    "pages/user/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/playground/location"

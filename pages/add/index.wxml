@@ -23,7 +23,7 @@
   </view>
 </view>
 <view class="target">
-  <view class="f36 black" bindtap="moveToLocation">
+  <view class="f36 black">
     <image src="/images/target.svg"></image>
   </view>
 </view>

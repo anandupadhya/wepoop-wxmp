@@ -18,8 +18,8 @@ Page({
     const id = getApp().globalData.user.id
     page.setData({ id })
     wx.request({
-      // url: `https://wepoop.wogengapp.cn/api/v1/users/${id}`,
-      url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
+      url: `https://wepoop.wogengapp.cn/api/v1/users/${id}`,
+      // url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
       method: 'GET',
       header: {
         "X-USER-EMAIL": getApp().globalData.headers["X-USER-EMAIL"],

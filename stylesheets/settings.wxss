@@ -2,7 +2,7 @@
 
 page {
   /* colors (DON'T CHANGE VARIABLE NAMES)*/
-  --pri: #74B149;
+  --pri: rgba(255, 204, 29, 1);
   --body: #333333;
   --bodyDim: #666666;
   --bodyLight: #999999;

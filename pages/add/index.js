@@ -16,17 +16,31 @@ Page({
       }
     ]
   },
+
   moveToLocation: function () {
     const page = this;
     page.data.mapCtx.moveToLocation({
       success(res) {
         console.log(res)
+        // {errMsg: "moveToMapLocation:ok"}
+        page.data.mapCtx.getCenterLocation({
+          success(res) {
+            console.log(res)
+            // {errMsg: "getMapCenterLocation:ok", latitude: 31.18826000000001, longitude: 121.43687}
+          }
+        })
+        page.data.mapCtx.getRegion({
+          success(res) {
+            console.log(res)
+            // {errMsg: "getMapCenterLocation:ok", latitude: 31.18826000000001, longitude: 121.43687}
+          }
+        })
       }
     })
         
   },
 
-  goToCurrentLocation() {
+  setUserLocation() {
     const page = this;
     wx.getLocation({
       success(res) {
@@ -42,7 +56,7 @@ Page({
   regionChangeHandler(e) { 
     const page = this;
     if (e.type === 'end') {
-      console.log(e.detail)
+      // console.log(e.detail)
       const page = this; 
       const latitude = e.detail.centerLocation.latitude
       const longitude = e.detail.centerLocation.longitude
@@ -58,7 +72,7 @@ Page({
   submitHandler(e) {
     const page = this;
     console.log("Going to submit")
-    console.log(e)
+    // console.log(e)
 
     const description = e.detail.value.description
     const directions = e.detail.value.directions
@@ -118,7 +132,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.goToCurrentLocation()
+    this.setUserLocation()
   },
 
   /**
