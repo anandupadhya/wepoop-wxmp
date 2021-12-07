@@ -30,6 +30,7 @@
 .fsbody { font-size: 26rpx;}
 .fmini { font-size: 20rpx;}
 /* WEIGHT */
+.normal { font-weight: normal;}
 .bold { font-weight: bold;}
 .semibold { font-weight: 600; }
 .extrabold { font-weight: 900; }

@@ -187,7 +187,6 @@ Page({
   async moveMap() {
     const app = getApp()
     const page = this;
-    // app.globalData.mapCtx = wx.createMapContext('myMap')
     const movedRes = await page.moveToLocation()
 
     if (movedRes.errMsg === 'moveToMapLocation:ok') {

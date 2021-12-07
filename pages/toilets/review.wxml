@@ -1,25 +1,33 @@
 <!--pages/toilets/review.wxml-->
 <topnav />
 
-<view class="page-container pa40 black bold text-center flex column items-center">
-  <view class="f60 my">How was it?</view>
-  <view class="w30 f96 pa20 my radius20 b b4 b-pri {{ happy === true ? 'bg-pri' : '' }};" bindtap="happyReviewHandler">😀</view>
-  <view class="w30 f96 pa20 my radius20 b b4 b-pri {{ happy === false ? 'bg-pri' : '' }};" bindtap="unhappyReviewHandler">😟</view>
+<view class="page-container pa30 black bold text-center flex column items-center">
+  <view class="f60 mt20 mb40">How was it?</view>
+
+  <view class="w100 flex justify-center">
+    <view class="w30 .box-b f84 px10 py20 mx10 my radius20 b b2 {{ happy === true ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="happyReviewHandler">😀</view>
+    <view class="w30 .box-b f84 px10 py20 mx10 my radius20 b b2 {{ happy === false ? 'b-pri bg-pri' : 'b-grey-light' }};" bindtap="unhappyReviewHandler">😟</view>
+  </view>
+
   <view style="display: {{ happy === true ? 'flex' : 'none' }};" class="column items-center ">
-    <view class="pa20 my f36">What did you like most?</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'Cleanliness & Hygeine' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="Cleanliness & Hygeine">Cleanliness & Hygeine</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'Easy to Find' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="Easy to Find">Easy to Find</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'Ameneties' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="Ameneties">Ameneties</view>
-    <view class="w30 pa20 mt40 radius20 f36 b b4 b-pri bg-pri" bindtap="submitHandler">Submit</view>
+    <view class="pa20 my f40">What did you like most?</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Cleanliness & Hygeine' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Cleanliness & Hygeine">Cleanliness & Hygeine</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Easy to Find' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Easy to Find">Easy to Find</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Ameneties' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Ameneties">Ameneties</view>
   </view>
+
   <view style="display: {{ happy === false ? 'flex' : 'none' }};" class="column items-center ">
-    <view class="pa20 my f36">What was the problem?</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'Clogged Toilet' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="Clogged Toilet">Clogged Toilet</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'No Tissues' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="No Tissues">No Tissues</view>
-    <view class="w90 pa20 my radius20 f36 b b4 b-pri {{ comment === 'Incorrect Location' ? 'bg-pri' : '' }}" bindtap="commentHandler" data-comment="Incorrect Location">Incorrect Location</view>
-    <view class="w30 pa20 mt40 radius20 f36 b b4 b-pri bg-pri" bindtap="submitHandler">Submit</view>
+    <view class="pa20 my f40">What was the problem?</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Clogged Toilet' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Clogged Toilet">Clogged Toilet</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'No Tissues' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="No Tissues">No Tissues</view>
+    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Incorrect Location' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Incorrect Location">Incorrect Location</view>
   </view>
-  <view class="pa20 my f36" bindtap="cancelHandler">Skip Review</view>
+
+  <view class="w100 mt50 flex column items-center">
+    <view style="display: {{ ( happy === true ) || ( happy === false )  ? 'flex' : 'none' }};" class="w40 .box-b pa20 mt20 b b2 b-sec bg-sec radius20 f36 justify-center" bindtap="submitHandler">Submit</view>
+    <view class="w40 .box-b pa20 mt20 b b4 b-sec radius20 f36" bindtap="cancelHandler">Skip Review</view>
+  </view>
+
 </view>
 
 <bottomnav current-page="{{0}}" />

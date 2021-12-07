@@ -29,7 +29,7 @@
     <view class="f40 black py20">{{currentToilet.description}}</view>
     <view class="f32 black bold">{{currentToilet.distanceDisplay}}</view>
     <view class="flex justify-evenly">
-        <view class="happy pa flex items-center w35 black">
+        <!-- <view class="happy pa flex items-center w35 black">
           <view class="f72">😀</view>
           <view class="f48">{{currentToilet.happy}}%</view>
         </view>
@@ -40,6 +40,9 @@
         <view class="navigate pa flex column justify-center radius20 bg-pri w25 f30 black bold" bindtap="startNavigation">
           <view>Take Me</view>
           <view>There</view>
+        </view> -->
+        <view class="navigate mt30 pa flex column justify-center radius20 bg-pri w40 f30 black bold" bindtap="startNavigation">
+          <view>Take Me There</view>
         </view>
     </view>
   </view>
