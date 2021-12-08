@@ -1,5 +1,6 @@
 // pages/user/index.js
-const user = getApp().globalData.user
+const app = getApp()
+const user = app.globalData.user
 
 Page({
 
@@ -15,10 +16,14 @@ Page({
    */
   onLoad: function (options) {
     const page = this;
-    const id = getApp().globalData.user.id
-    page.setData({ id })
+    const user_id = app.globalData.user.id
+    page.setData({ user_id })
+
+    const env = app.globalData.env
+    const url = app.globalData.url[env]
+    
     wx.request({
-      url: `https://wepoop.wogengapp.cn/api/v1/users/${id}`,
+      url: `${url}/users/${user_id}`,
       // url: `http://localhost:3000/api/v1/toilets?latitude=${latitude}&longitude=${longitude}`,
       method: 'GET',
       header: {

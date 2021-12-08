@@ -28,8 +28,8 @@
 
 <block wx:if="{{nearest}}">
   <view class="eta flex f40 black bold">
-    <view class="happy w30 mx pa flex"><image src="/images/happy-f.svg"></image> 12</view>
-    <view class="unhappy w30 mx pa flex"><image src="/images/sad-f.svg"></image> 2</view>
+    <view class="happy w30 mx pa flex"><image src="/images/happy-f.svg"></image> {{currentToilet.happy}}</view>
+    <view class="unhappy w30 mx pa flex"><image src="/images/sad-f.svg"></image> {{currentToilet.unhappy}}</view>
   </view>
   <view class="info pa text-center">
     <view class="f40 black py20">{{currentToilet.description}}</view>

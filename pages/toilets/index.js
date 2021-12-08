@@ -99,15 +99,15 @@ Page({
       success(res) {
         
         function formatToiletData(toilet) {
-          const happy = Math.floor(Math.random() * 50) + 50
-          const unhappy = 100 - happy
+          // const happy = Math.floor(Math.random() * 50) + 50
+          // const unhappy = 100 - happy
           const callout = {
             content: `${toilet.description}`,
             fontSize: 16,
             borderRadius: 4,
             padding: 8,
           }
-          return { ...toilet, width: '48', height: '48', iconPath: '/images/marker2.png', callout, happy, unhappy }
+          return { ...toilet, width: 48, height: 48, iconPath: '/images/marker2.png', callout, }
         };
         
         const toilets = res.data.toilets.map((toilet) => {

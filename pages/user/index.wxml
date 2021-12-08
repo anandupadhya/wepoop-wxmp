@@ -5,7 +5,7 @@
 
 <view class="page-container">
   <view class="favorites section">
-    <view>User ID {{id}}</view>
+    <view>User ID {{user_id}}</view>
     <view class="title f48 black bold">Favorites</view>
     <block wx:if="{{favorites.length > 0}}">
       <view wx:for="{{favorites}}" wx:for-item="toilet" wx:key="key">
