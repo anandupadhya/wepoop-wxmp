@@ -17,7 +17,7 @@
       <view class="content black">Keep exploring...</view>
     </block>
   </view>
-  <view class="reviews section">
+  <!-- <view class="reviews section">
     <view class="title f48 black bold">Your Reviews</view>
     <block wx:if="{{reviews.length > 0}}">
       <view wx:for="{{reviews}}" wx:for-item="review" wx:key="key">
@@ -28,7 +28,7 @@
       <view class="content black">You haven't revied any toilets yet.</view>
       <view class="content black">Go take a dump and help use review...</view>
     </block>
-  </view>
+  </view> -->
 </view>
 
 <bottomnav current-page="{{1}}" />

@@ -57,7 +57,6 @@ Page({
     const page = this;
     if (e.type === 'end') {
       // console.log(e.detail)
-      const page = this; 
       const latitude = e.detail.centerLocation.latitude
       const longitude = e.detail.centerLocation.longitude
       console.log(latitude, longitude)
@@ -65,21 +64,20 @@ Page({
       page.setData({ toilets })
       
     }
-    // *************** TODO ***************
-    // console.log(e.detail.region)
   },
 
   submitHandler(e) {
     const page = this;
-    console.log("Going to submit")
-    // console.log(e)
+
+    const env = app.globalData.env
+    const url = app.globalData.url[env]
 
     const description = e.detail.value.description
     const directions = e.detail.value.directions
+
     if ( description && directions ) {
       wx.request({
-        url: `https://wepoop.wogengapp.cn/api/v1/toilets`,
-        // url: `http://localhost:3000/api/v1/toilets`,
+        url: `${url}/toilets`,
         method: 'POST',
         header: {
           "X-USER-EMAIL": app.globalData.headers["X-USER-EMAIL"],

@@ -8,7 +8,7 @@
       id="addMap"
       scale="17"
       min-scale="15"
-      max-scale="18"
+      max-scale="20"
       show-location="true"
       latitude="{{latitude}}"
       longitude="{{longitude}}"
@@ -17,27 +17,28 @@
       bindregionchange="regionChangeHandler">
     </map>
 </view>
+
 <view class="locate">
   <view class="f36 black bold" bindtap="moveToLocation">
     <image src="/images/target.svg"></image>
   </view>
 </view>
+
 <view class="target">
   <view class="f36 black">
     <image src="/images/target.svg"></image>
   </view>
 </view>
+
 <view class="my-form-container">
-  <form catchsubmit="submitHandler" catchreset="formReset">
-    <!-- <view>Latitude: {{toilets[0].latitude}}</view>
-    <view>Longitude: {{toilets[0].longitude}}</view> -->
-    <view class="mb40">Drag the map to the desired location...</view>
-    <view class="my-form-label">Description</view>
-    <input class="my-form-input" name="description" placeholder="Ex: Crystal Galaria 3rd Floor" />
-    <view class="my-form-label">Directions</view>
-    <input class="my-form-input" name="directions" placeholder="Ex: Walk past the Zara store and make a left" />
-    <view class="my-form-buttons">
-      <button class="btn-submit mt50" formType="submit">Submit</button>
+    <view class="my20">Drag the map to the desired location...</view>
+  <form catchsubmit="submitHandler">
+    <view class="my20 f40 black bold">Description</view>
+    <input class="my20 w90 pa20 my radius20 f32 b b2 b-grey-light" name="description" placeholder="Ex: Crystal Galaria 3rd Floor" />
+    <view class="my20 f40 black bold">Directions</view>
+    <input class="my20 w90 pa20 my radius20 f32 b b2 b-grey-light" name="directions" placeholder="Ex: Walk past the Zara store and make a left" />
+    <view class="">
+      <button class="w40 .box-b pa20 mt40 b b2 b-pri bg-pri radius20 f36 justify-center" formType="submit">Submit</button>
     </view>
   </form>
 </view>

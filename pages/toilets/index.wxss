@@ -5,6 +5,7 @@
   top: 100px;
   width: 100vw;
   height: calc(100vh - 100px - 150px - 70px);
+  /* height: calc(100vh - 100px - 70px); */
 }
 
 .map-element {
@@ -12,18 +13,29 @@
   height: 100%;
 }
 
-.eta {
-  width: 60%;
-  height: 170rpx;
-  position:fixed;
-  top: 160rpx;
-  margin-left: 20%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.happy image {
+  width: 36px;
+  height: 24px;
+}
+.unhappy image {
+  width: 36px;
+  height: 24px;
+}
 
-  border-radius: 32rpx;
+.eta {
+  position:fixed;
+  top: 100px;
+  padding: 12px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  width: 60%;
+  margin-left: 20%;
+
+  display: flex;
+  justify-content: center;
+
+  border-bottom-right-radius: 32rpx;
+  border-bottom-left-radius: 32rpx;
 
   background-color:  rgba(255, 255, 255, 1.0);
   box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.5);
@@ -35,7 +47,7 @@
   height: 150px;
   position:fixed;
   bottom: 70px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   box-shadow: 0 -10rpx 20rpx rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }

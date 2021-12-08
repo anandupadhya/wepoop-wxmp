@@ -15,16 +15,16 @@
 
   <view style="display: {{ happy === true ? 'flex' : 'none' }};" class="column items-center ">
     <view class="pa20 my f40">What did you like most?</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Cleanliness & Hygeine' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Cleanliness & Hygeine">Cleanliness & Hygeine</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Easy to Find' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Easy to Find">Easy to Find</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Ameneties' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Ameneties">Ameneties</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'Cleanliness & Hygeine' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Cleanliness & Hygeine">Cleanliness & Hygeine</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'Easy to Find' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Easy to Find">Easy to Find</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'Ameneties' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Ameneties">Ameneties</view>
   </view>
 
   <view style="display: {{ happy === false ? 'flex' : 'none' }};" class="column items-center ">
     <view class="pa20 my f40">What was the problem?</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Clogged Toilet' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Clogged Toilet">Clogged Toilet</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'No Tissues' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="No Tissues">No Tissues</view>
-    <view class="w90 pa20 my radius20 f32 b b2 b-pri {{ comment === 'Incorrect Location' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Incorrect Location">Incorrect Location</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'Clogged Toilet' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Clogged Toilet">Clogged Toilet</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'No Tissues' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="No Tissues">No Tissues</view>
+    <view class="w90 pa20 my radius20 f32 b b2 {{ comment === 'Incorrect Location' ? 'b-pri bg-pri' : 'b-grey-light' }}" bindtap="commentHandler" data-comment="Incorrect Location">Incorrect Location</view>
   </view>
 
   <view class="w100 mt50 flex column items-center">
