@@ -28,8 +28,21 @@
   </view>
 
   <view class="w100 mt50 flex column items-center">
-    <view style="display: {{ ( happy === true ) || ( happy === false )  ? 'flex' : 'none' }};" class="w40 .box-b pa20 mt20 b b2 b-pri bg-pri radius20 f36 justify-center" bindtap="submitHandler">Submit</view>
-    <view class="w40 .box-b pa20 mt20 b b4 b-pri radius20 f36" bindtap="cancelHandler">Skip Review</view>
+    <view style="display: {{ ( happy === true ) || ( happy === false )  ? 'flex' : 'none' }};" class="w50 .box-b pa20 mt20 b b2 b-pri bg-pri radius20 f36 justify-center" bindtap="submitHandler">Submit</view>
+    <view class="w50 .box-b pa20 mt20 b b4 b-pri radius20 f36" bindtap="cancelHandler">Skip Review</view>
+    <view class="w50.box-b pa20 mt20 flex justify-evenly radius20 f36 {{ isFavorite ? '' : 'b b4 b-pri'}}" bindtap="addFavoriteHandler">
+      {{ isFavorite ? 'Toilet Saved' : 'Save Toilet'}}
+      <view wx:if="{{ isFavorite }}" class="favorite flex pl"><image src="/images/check-circle-pri.svg"></image></view>
+    </view>
+    <!-- <view wx:if="{{ isFavorite === false }}" class="favorite" bindtap="addFavoriteHandler">
+      <image src="/images/star-hollow-pri.svg"></image>
+      <view>Add to Saved Toilets</view>
+    </view>
+    <view wx:else class="favorite" bindtap="addFavoriteHandler">
+      <image src="/images/star-fill-pri.svg"></image>
+      <view>Remove from Saved Toilets</view>
+    </view> -->
+    <!-- <view class="w40 .box-b pa20 mt20 radius20 f36 {{ isFavorite === true ? 'b b4 b-grey-light' : 'b b4 b-pri'}}" bindtap="addFavoriteHandler">{{ isFavorite === true ? 'Remove' : 'Save Toilet'}}</view> -->
   </view>
 
 </view>

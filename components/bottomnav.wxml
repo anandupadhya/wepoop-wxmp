@@ -8,7 +8,7 @@
 
     <!-- <view class="nav-btn {{currentPage === 1 ? 'active' : ''}}" bindtap="userBtnHandler">User</view> -->
     <view class="nav-btn btn-user {{currentPage === 1 ? 'active' : ''}}" bindtap="userBtnHandler">
-      <image src="/images/user2.svg"></image>
+      <image src="/images/star-hollow-black.svg"></image>
     </view>
 
     <!-- <view class="nav-btn {{currentPage === 2 ? 'active' : ''}}" bindtap="addBtnHandler">Add</view> -->

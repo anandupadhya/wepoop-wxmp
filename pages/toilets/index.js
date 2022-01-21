@@ -16,7 +16,7 @@ Page({
       name: page.data.currentToilet.description,
       complete(res) {
         wx.redirectTo({
-          url: `/pages/toilets/review?toilet_id=${page.data.currentToilet.id}`,
+          url: `/pages/toilets/review?toilet_id=${page.data.currentToilet.id}&is_favorite=${page.data.currentToilet.isFavorite}`,
         })
       }
     })
@@ -97,25 +97,27 @@ Page({
         "X-USER-TOKEN": app.globalData.headers["X-USER-TOKEN"]
       },
       success(res) {
+        console.log(res)
+        // function formatToiletData(toilet) {
+        //   // const happy = Math.floor(Math.random() * 50) + 50
+        //   // const unhappy = 100 - happy
+        //   const callout = {
+        //     content: `${toilet.description}`,
+        //     fontSize: 16,
+        //     borderRadius: 4,
+        //     padding: 8,
+        //   }
+        //   return { ...toilet, width: 48, height: 48, iconPath: '/images/marker2.png', callout, }
+        // };
         
-        function formatToiletData(toilet) {
-          // const happy = Math.floor(Math.random() * 50) + 50
-          // const unhappy = 100 - happy
-          const callout = {
-            content: `${toilet.description}`,
-            fontSize: 16,
-            borderRadius: 4,
-            padding: 8,
-          }
-          return { ...toilet, width: 48, height: 48, iconPath: '/images/marker2.png', callout, }
-        };
+        // const toilets = res.data.toilets.map((toilet) => {
+        //   return formatToiletData(toilet)
+        // })
+
+        // const nearest = formatToiletData(res.data.nearest)
+        const nearest = res.data.nearest
+        const toilets = res.data.toilets
         
-        const toilets = res.data.toilets.map((toilet) => {
-          return formatToiletData(toilet)
-        })
-
-        const nearest = formatToiletData(res.data.nearest)
-
         if (setNearest) {
           const currentToilet = nearest
           page.setData({ toilets, nearest, currentToilet })

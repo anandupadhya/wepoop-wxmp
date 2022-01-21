@@ -9,3 +9,9 @@
   width: 100rpx;
   height: 100rpx;
 }
+
+.favorite > image{
+  width: 48rpx;
+  height: 48rpx;
+
+}

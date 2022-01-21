@@ -5,17 +5,28 @@
 
 <view class="page-container">
   <view class="favorites section">
-    <view>User ID {{user_id}}</view>
-    <view class="title f48 black bold">Favorites</view>
+
+    <!-- <view>User ID {{user_id}}</view> -->
+
+    <view class="title f48 black bold">Saved Toilets</view>
+
     <block wx:if="{{favorites.length > 0}}">
-      <view wx:for="{{favorites}}" wx:for-item="toilet" wx:key="key">
-        <view class="content black">Toilet: {{toilet.toilet_id}}</view>
+      <view wx:for="{{favorites}}" wx:for-item="item" wx:key="key">
+      <view class="w100 flex items-center justify-space-between">
+        <block wx:if="{{ item.display }}">
+          <view class="w90 content flex justify-between items-center black" data-favorite-id="{{item.id}}" data-index="{{ index }}" bindtap="startNavigation">
+            {{item.description}}
+          </view>
+          <view class="btn-delete flex justify-center items-center pa ml20 radius50 bg-pri black bold" data-favorite-id="{{item.id}}" data-index="{{ index }}" bindtap="removeFavoriteHandler">X</view>
+        </block>
+      </view>
       </view>
     </block>
+
     <block wx:else>
       <view class="content black">You don't have any favorite toilets yet.</view>
-      <view class="content black">Keep exploring...</view>
     </block>
+
   </view>
   <!-- <view class="reviews section">
     <view class="title f48 black bold">Your Reviews</view>
